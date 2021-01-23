@@ -15,12 +15,47 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.purple[900]),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('WordPair Generator')),
-          body: Center(child: Text(wordPair.asPascalCase))
-
-      )   
+      home: RandomWords()   
     );
+  }
+}
+
+// this overrides createState so we need to extend Stateful Widget
+class RandomWords extends StatefulWidget {
+  @override
+  RandomWordsState createState() => RandomWordsState();
+}
+
+class RandomWordsState extends State<RandomWords> {
+  Widget _buildList() {
+    // a ListView is one of the most common scrolling widgets
+    // this is the basic layout, from documentation here:
+    // https://api.flutter.dev/flutter/widgets/ListView-class.html
+    return ListView(
+      padding: const EdgeInsets.all(8),
+      children: <Widget>[
+        Container(
+          height: 50,
+          color: Colors.amber[600],
+          child: const Center(child: Text('Entry A')),
+        ),
+        Container(
+          height: 50,
+          color: Colors.amber[500],
+          child: const Center(child: Text('Entry B')),
+        ),
+        Container(
+          height: 50,
+          color: Colors.amber[100],
+          child: const Center(child: Text('Entry C')),
+        ),
+      ],
+    );
+  }
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('WordPair Generator')),
+      body: _buildList());
   }
 }
