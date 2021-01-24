@@ -63,9 +63,18 @@ final _savedWordPairs = Set<WordPair>();
       );
   }
 
+  void _pushSaved() {}
+
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('WordPair Generator')),
+      appBar: AppBar(
+        title: Text('WordPair Generator'),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.list),
+          onPressed: _pushSaved
+          )
+        ]
+        ),
       body: _buildList());
   }
 }
