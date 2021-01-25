@@ -1,6 +1,6 @@
 # wordpair_generator
 
-A new Flutter project.
+A new Flutter project, created from Traversy Media's Flutter Crash Course.
 
 ## Getting Started
 
